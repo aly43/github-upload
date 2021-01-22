@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}
+  Cancel Event
+{% endblock %}
+{% block body %}
+	<h2>{{ self.title() }}</h2>
+	{% if g.user %}
+	<p>To remove this event, enter y</p>
+	<form action="{{ url_for('remove_event', username=profile_user.username, event=event.event_title }}" method="post">
+          <p><input type="text" name="text" size="60"><!--
+          --><input type="submit" value="Confirm">
+      </p></form>
+    <p>Otherwise, return to homepage</p>
+      {% endif %}
+{% endblock %}
